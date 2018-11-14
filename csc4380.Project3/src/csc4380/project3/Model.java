@@ -7,6 +7,7 @@ package csc4380.project3;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -125,6 +126,7 @@ public class Model {
         return seats;
     }
     
+    
     public String getMovie(int mov) {
         String s = "";
         try {
@@ -166,8 +168,12 @@ public class Model {
         return s;
     }
     
-    public String getListings() {
+    /**
+     * @return String array of all movies stored in the database
+     */
+    public String[] getListings() {
         String s = "";
+        String[] results = {};
         try {
             System.setProperty("jdbc.drivers", jdbc_drivers);
  
@@ -176,9 +182,10 @@ public class Model {
             rs = st.executeQuery("SELECT * FROM movies");
             
             while (rs.next()) {
-                s += rs.getString(2)+" ";
-                
+                s += rs.getString(2)+"@";   //Creates a string of all movies and uses "@" as a delimiter
             }
+            
+            results = s.split("@");         //Segments the string using the delimiter and stores each segment as an element in an array
 
         } catch (SQLException ex) {
             //Logger lgr = Logger.getLogger(Version.class.getName());
@@ -205,8 +212,40 @@ public class Model {
                             }
         }
         
-        
-        
-        return s;
+        return results;
+    }
+    
+    public void createTicket(int sid, String seat, String name) {
+        try {
+            System.setProperty("jdbc.drivers", jdbc_drivers);
+ 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/movie_maniacs", "root", "");
+            st = con.createStatement();
+            st.executeUpdate("INSERT INTO tickets (Show_ID, Seat, Name) VALUES ('"+sid+"', '"+seat+"', '"+name+"')");
+            
+
+        } catch (SQLException ex) {
+            //Logger lgr = Logger.getLogger(Version.class.getName());
+            //lgr.log(Level.SEVERE, ex.getMessage(), ex);
+               Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+               
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+
+            } catch (SQLException ex) {
+               // Logger lgr = Logger.getLogger(Version.class.getName());
+                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+                //lgr.log(Level.WARNING, ex.getMessage(), ex);
+                            }
+        }
     }
 }
