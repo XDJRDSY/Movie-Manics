@@ -5,10 +5,32 @@
  */
 package csc4380.project3;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.EventListener;
+
 /**
  *
  * @author Joana
  */
-public class Controller {
+public class Controller{
     
+    private View views;
+
+    Controller (Model model, View view)
+    {
+        views = view;
+        views.addALSeats(new seatListener());
+        
+    }
+    
+    class seatListener implements ActionListener {                                        
+        public void actionPerformed(ActionEvent e) {
+            views.checkout();
+        }      
+    }  
 }
+
