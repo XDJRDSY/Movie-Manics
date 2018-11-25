@@ -19,11 +19,14 @@ import java.util.EventListener;
 public class Controller{
     
     private View views;
+    Model model;
 
     Controller (Model model, View view)
     {
         views = view;
         views.addALSeats(new seatListener());
+        model = new Model();
+        //model.getConnection();
         
     }
     
@@ -31,6 +34,6 @@ public class Controller{
         public void actionPerformed(ActionEvent e) {
             views.checkout();
         }      
-    }  
+    }
 }
 
