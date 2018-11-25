@@ -13,15 +13,18 @@ import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-
 /**
  *
  * @author Justin
  */
 public class View extends javax.swing.JFrame {
     
-    JButton [][] seats = new JButton [5][10];
     
+    
+    
+    JButton [] movies = new JButton[8];
+    JButton [] movietimes = new JButton[10];
+    JButton [][] seats = new JButton [5][10];
     /**
      * Creates new form View
      */
@@ -31,18 +34,16 @@ public class View extends javax.swing.JFrame {
         int y = (int) ((screen.getHeight() -getHeight()) /4.5);
         setLocation(x, y);
         
-        //this.setResizable(false);
+        this.setResizable(false);
         
         initComponents();
-        JLabel[] pics= new JLabel[] {pic1,pic2,pic3,pic4,pic5,pic6,pic7,pic8};
-      
         
-        //pic1.setIcon(new javax.swing.ImageIcon("C:\\Users\\jphung1\\Downloads\\images.jpg"));
+        showtimepanel.setVisible(false);          //sets the visibility of second panel to false until the user selects a movie
+        seatpanel.setVisible(false);          //blocks visibility of seat selection panel until user chooses a movie time
         
-        //jPanel4.setVisible(false);          //sets the visibility of second panel to false until the user selects a movie
-        //jPanel2.setVisible(false);          //blocks visibility of seat selection panel until user chooses a movie time
+        createMovieArray();
         
-        jPanel2.setLayout(new java.awt.GridLayout(5, 10, 10, 10));
+        seatpanel.setLayout(new java.awt.GridLayout(5, 10, 10, 10));
         genSeats();
         addSeats();
         
@@ -68,26 +69,19 @@ public class View extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
-        pic8 = new javax.swing.JLabel();
-        pic6 = new javax.swing.JLabel();
-        pic4 = new javax.swing.JLabel();
-        pic7 = new javax.swing.JLabel();
-        pic5 = new javax.swing.JLabel();
-        pic3 = new javax.swing.JLabel();
-        pic2 = new javax.swing.JLabel();
-        pic1 = new javax.swing.JLabel();
+        moviepanel = new javax.swing.JPanel();
+        movie4 = new javax.swing.JButton();
+        movie1 = new javax.swing.JButton();
+        movie2 = new javax.swing.JButton();
+        movie3 = new javax.swing.JButton();
+        movie6 = new javax.swing.JButton();
+        movie5 = new javax.swing.JButton();
+        movie7 = new javax.swing.JButton();
+        movie8 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jPanel4 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        showtimepanel = new javax.swing.JPanel();
         jButton12 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        seatpanel = new javax.swing.JPanel();
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -158,148 +152,100 @@ public class View extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 0, 0));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new java.awt.GridLayout());
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        moviepanel.setBackground(new java.awt.Color(0, 0, 0));
 
-        pic8.setForeground(new java.awt.Color(255, 255, 255));
-        pic8.setText("pic8");
+        movie4.setText("Movie4");
 
-        pic6.setForeground(new java.awt.Color(255, 255, 255));
-        pic6.setText("pic6");
+        movie1.setText("Movie1");
 
-        pic4.setForeground(new java.awt.Color(255, 255, 255));
-        pic4.setText("pic4");
+        movie2.setText("Movie2");
 
-        pic7.setForeground(new java.awt.Color(255, 255, 255));
-        pic7.setText("pic7");
+        movie3.setText("Movie3");
 
-        pic5.setForeground(new java.awt.Color(255, 255, 255));
-        pic5.setText("pic5");
+        movie6.setText("Movie6");
 
-        pic3.setForeground(new java.awt.Color(255, 255, 255));
-        pic3.setText("pic3");
+        movie5.setText("Movie5");
 
-        pic2.setForeground(new java.awt.Color(255, 255, 255));
-        pic2.setText("pic2");
+        movie7.setText("Movie7");
 
-        pic1.setForeground(new java.awt.Color(255, 255, 255));
-        pic1.setText("pic1");
-        pic1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pic1MouseClicked(evt);
-            }
-        });
+        movie8.setText("Movie8");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(pic1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout moviepanelLayout = new javax.swing.GroupLayout(moviepanel);
+        moviepanel.setLayout(moviepanelLayout);
+        moviepanelLayout.setHorizontalGroup(
+            moviepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviepanelLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(moviepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(moviepanelLayout.createSequentialGroup()
+                        .addComponent(movie7, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                        .addComponent(movie8, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviepanelLayout.createSequentialGroup()
+                        .addComponent(movie5, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pic2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(pic7, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(movie6, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviepanelLayout.createSequentialGroup()
+                        .addComponent(movie3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pic8, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(pic5, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(movie4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviepanelLayout.createSequentialGroup()
+                        .addComponent(movie1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pic6, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(pic3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                        .addComponent(pic4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(44, 44, 44))
+                        .addComponent(movie2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(59, 59, 59))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pic2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pic1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pic4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pic3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+        moviepanelLayout.setVerticalGroup(
+            moviepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviepanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(moviepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(movie2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(movie1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pic6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pic5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(moviepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(movie3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(movie4, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pic8, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pic7, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGroup(moviepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(movie6, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(movie5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(moviepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(movie7, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(movie8, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jScrollPane1.setViewportView(jPanel1);
+        jScrollPane1.setViewportView(moviepanel);
         jScrollPane1.setWheelScrollingEnabled(true);
         jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
 
-        jPanel4.setBackground(new java.awt.Color(140, 0, 0));
-        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));    //changes the layout so that buttons display vertically instead of horizontally
-
-        jButton5.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jButton5.setText("16/56 12:00pm - 10:00pm");
-        jButton5.setPreferredSize(new java.awt.Dimension(478, 50));
-        jPanel4.add(jButton5);
-
-        jButton6.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jButton6.setText("16/56 12:00pm - 10:00pm");
-        jButton6.setPreferredSize(new java.awt.Dimension(478, 50));
-        jPanel4.add(jButton6);
-
-        jButton7.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jButton7.setText("16/56 12:00pm - 10:00pm");
-        jButton7.setPreferredSize(new java.awt.Dimension(478, 50));
-        jPanel4.add(jButton7);
-
-        jButton8.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jButton8.setText("16/56 12:00pm - 10:00pm");
-        jButton8.setPreferredSize(new java.awt.Dimension(478, 50));
-        jPanel4.add(jButton8);
-
-        jButton9.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jButton9.setText("16/56 12:00pm - 10:00pm");
-        jButton9.setPreferredSize(new java.awt.Dimension(478, 50));
-        jPanel4.add(jButton9);
-
-        jButton10.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jButton10.setText("16/56 12:00pm - 10:00pm");
-        jButton10.setPreferredSize(new java.awt.Dimension(478, 50));
-        jPanel4.add(jButton10);
-
-        jButton11.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jButton11.setText("0/56 12:00pm - 10:00pm");
-        jButton11.setPreferredSize(new java.awt.Dimension(478, 50));
-        jPanel4.add(jButton11);
+        showtimepanel.setBackground(new java.awt.Color(140, 0, 0));
+        showtimepanel.setLayout(new javax.swing.BoxLayout(showtimepanel, javax.swing.BoxLayout.LINE_AXIS));
+        showtimepanel.setLayout(new javax.swing.BoxLayout(showtimepanel, javax.swing.BoxLayout.Y_AXIS));    //changes the layout so that buttons display vertically instead of horizontally
 
         jButton12.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jButton12.setText("16/56 12:00pm - 10:00pm");
         jButton12.setPreferredSize(new java.awt.Dimension(478, 50));
-        jPanel4.add(jButton12);
+        showtimepanel.add(jButton12);
 
-        jScrollPane3.setViewportView(jPanel4);
+        jScrollPane3.setViewportView(showtimepanel);
         jScrollPane3.setWheelScrollingEnabled(true);
         jScrollPane3.getVerticalScrollBar().setUnitIncrement(16);   //increase the distance the scroll bar moves
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        seatpanel.setBackground(new java.awt.Color(0, 0, 0));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout seatpanelLayout = new javax.swing.GroupLayout(seatpanel);
+        seatpanel.setLayout(seatpanelLayout);
+        seatpanelLayout.setHorizontalGroup(
+            seatpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1037, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        seatpanelLayout.setVerticalGroup(
+            seatpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 189, Short.MAX_VALUE)
         );
 
@@ -313,7 +259,7 @@ public class View extends javax.swing.JFrame {
                     .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(seatpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,47 +269,64 @@ public class View extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(seatpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane3.setHorizontalScrollBarPolicy(jScrollPane3.HORIZONTAL_SCROLLBAR_NEVER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void pic1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pic1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pic1MouseClicked
     
-    /*this needs to get image path from contoller
-    public void setPic(int i, IMAGEPATH)
+    public void createMovieArray()
     {
-        pic[i].setIcon(IMAGEPATH)
-    }
-    */
-    public void timeButton()
-    {
-        
+        movies[0]=movie1;
+        movies[1]=movie2;
+        movies[2]=movie3;
+        movies[3]=movie4;
+        movies[4]=movie5;
+        movies[5]=movie6;
+        movies[6]=movie7;
+        movies[7]=movie8;
     }
     
-    
-    /*this adds a mouse listener to the picture
-    public void addALPic(MouseEvent a)
+    //set the movie title for movie selection panel
+    public void setMovieTitle(String title, int x)
     {
-        
-        for(int i=0; i<8; i++)
+        movies[x-1].setFont(new java.awt.Font("Times New Roman", 1, 16));
+        movies[x-1].setText(title);
+    }
+    
+    public void addALMovie(ActionListener a)
+    {
+        for(int i=0; i<7; i++)
         {
-            pics[i].addMouseListener(a);
+            movies[i].addActionListener(a);
         }
     }
-    not sure how to make the mouse listener work. will figure it out later
-    */
     
-    //sets the time selection panel vsibility to true
-    public void showTime()
+     //sets the time selection panel vsibility to true
+    public void showTimes()
     {
-        jPanel4.setVisible(true);
+        showtimepanel.setVisible(true);
     }
+    
+    
+    //this method adds the movie times button to the movietime panel. i indicates a button 1-10 to add and the time is a string
+    public void addTimes(int i, String time)
+    {
+        movietimes[i-1] = new JButton();
+        movietimes[i-1].setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        movietimes[i-1].setPreferredSize(new java.awt.Dimension(478, 50));
+        showtimepanel.add(movietimes[i-1]);
+    }
+    
+    
+    //displays the seat panel
+    public void showSeats()
+    {
+        seatpanel.setVisible(true);
+    }
+    
     
     //generates seats stored in 5x10 array
     public void genSeats()
@@ -380,6 +343,10 @@ public class View extends javax.swing.JFrame {
         }
     }
     
+    public void removeSeats()
+    {
+        
+    }
     
     //this adds an action listener to the seat buttons. control will respond to this
     public void addALSeats(ActionListener a)
@@ -399,7 +366,7 @@ public class View extends javax.swing.JFrame {
         {
             for(int j=0; j<10;j++)
             {
-                jPanel2.add(seats[i][j]);
+                seatpanel.add(seats[i][j]);
             }
         }
     }
@@ -420,32 +387,25 @@ public class View extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField firstName;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField lastName;
-    private javax.swing.JLabel pic1;
-    private javax.swing.JLabel pic2;
-    private javax.swing.JLabel pic3;
-    private javax.swing.JLabel pic4;
-    private javax.swing.JLabel pic5;
-    private javax.swing.JLabel pic6;
-    private javax.swing.JLabel pic7;
-    private javax.swing.JLabel pic8;
+    private javax.swing.JButton movie1;
+    private javax.swing.JButton movie2;
+    private javax.swing.JButton movie3;
+    private javax.swing.JButton movie4;
+    private javax.swing.JButton movie5;
+    private javax.swing.JButton movie6;
+    private javax.swing.JButton movie7;
+    private javax.swing.JButton movie8;
+    private javax.swing.JPanel moviepanel;
+    private javax.swing.JPanel seatpanel;
+    private javax.swing.JPanel showtimepanel;
     // End of variables declaration//GEN-END:variables
 }
