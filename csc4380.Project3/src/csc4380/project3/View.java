@@ -19,9 +19,8 @@ import javax.swing.JLabel;
  */
 public class View extends javax.swing.JFrame {
     
-    
-    
-    
+    int seatnum, movie;
+    String custfname, custlname;
     JButton [] movies = new JButton[8];
     JButton [] movietimes = new JButton[10];
     JButton [][] seats = new JButton [5][10];
@@ -39,7 +38,7 @@ public class View extends javax.swing.JFrame {
         initComponents();
         
         showtimepanel.setVisible(false);          //sets the visibility of second panel to false until the user selects a movie
-        //seatpanel.setVisible(false);          //blocks visibility of seat selection panel until user chooses a movie time
+        seatpanel.setVisible(false);          //blocks visibility of seat selection panel until user chooses a movie time
         
         createMovieArray();
         
@@ -47,8 +46,6 @@ public class View extends javax.swing.JFrame {
         genSeats();
         addSeats();
         
-        
- 
     }
 
     /**
@@ -66,7 +63,7 @@ public class View extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lastName = new javax.swing.JTextField();
         firstName = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        confirmButton = new javax.swing.JButton();
         confirmationDialog = new javax.swing.JDialog();
         fnLabel = new javax.swing.JLabel();
         lnLabel = new javax.swing.JLabel();
@@ -107,9 +104,9 @@ public class View extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Last Name:");
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 51));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jButton1.setText("Confirm");
+        confirmButton.setBackground(new java.awt.Color(255, 255, 51));
+        confirmButton.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        confirmButton.setText("Confirm");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -131,7 +128,7 @@ public class View extends javax.swing.JFrame {
                         .addGap(96, 96, 96))))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(159, 159, 159)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -146,7 +143,7 @@ public class View extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
         );
 
@@ -191,7 +188,7 @@ public class View extends javax.swing.JFrame {
         confirmationDialogTitle.setText("Confirmation Page:");
 
         fName.setBackground(new java.awt.Color(255, 255, 255));
-        fName.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        fName.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
 
         lName.setBackground(new java.awt.Color(255, 255, 255));
         lName.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -436,10 +433,18 @@ public class View extends javax.swing.JFrame {
         for(int i=0; i<7; i++)
         {
             movies[i].addActionListener(a);
+            movie = i+1;
         }
     }
     
-     //sets the time selection panel vsibility to true
+    //returns which movie the customer clicked on
+    public int getMovie()
+    {
+        return movie;
+    }
+    
+    
+    //sets the time selection panel vsibility to true
     public void showTimes()
     {
         showtimepanel.setVisible(true);
@@ -453,6 +458,14 @@ public class View extends javax.swing.JFrame {
         movietimes[i-1].setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         movietimes[i-1].setPreferredSize(new java.awt.Dimension(478, 50));
         showtimepanel.add(movietimes[i-1]);
+    }
+    
+    public void addTimeAL(ActionListener a)
+    {
+        for(int i=0; i<10; i++)
+        {
+            movietimes[i].addActionListener(a);
+        }
     }
     
     
@@ -478,9 +491,9 @@ public class View extends javax.swing.JFrame {
         }
     }
     
-    public void removeSeats(int i, int j)
+    public void disableSeat(int i, int j)
     {
-        
+        seats[i][j].setEnabled(false);
     }
     
     //this adds an action listener to the seat buttons. control will respond to this
@@ -516,6 +529,27 @@ public class View extends javax.swing.JFrame {
         nameDialog.setVisible(true);
     }
     
+    public void addConfirmAL(ActionListener a)
+    {
+        confirmButton.addActionListener(a);
+        custfname = firstName.getText();
+        custlname = lastName.getText();
+        
+    }
+   
+    //return customer first name
+    public String getfName()
+    {
+        return custfname;
+    }
+    
+    //return customer last name
+    public String getlName()
+    {
+        return custlname;
+    }
+    
+    
     public void showConfirmation(String fname, String lname, String movie, String time, String chair, String transaction)
     {
         fName.setText(fname);
@@ -532,12 +566,12 @@ public class View extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IDLabel;
+    private javax.swing.JButton confirmButton;
     private javax.swing.JDialog confirmationDialog;
     private javax.swing.JLabel confirmationDialogTitle;
     private javax.swing.JLabel fName;
     private javax.swing.JTextField firstName;
     private javax.swing.JLabel fnLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
