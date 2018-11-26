@@ -68,6 +68,10 @@ public class Model {
         
     }
     
+    /**
+     * @param show Show_ID
+     * @return 2D array of seat availability for the specified movie and showtime
+     */
     public int[][] getSeats(int show) {
         String s = "";
         int count = 0;
@@ -120,7 +124,9 @@ public class Model {
         return seats;
     }
     
-    
+    /**
+     * @return Title of movie
+     */
     public String getMovie(int mov) {
         String s = "";
         try {
@@ -301,6 +307,10 @@ public class Model {
         }
     }
     
+    /**
+     * @param mov Movie_ID
+     * @return String array of all showtimes for the specified Movie
+     */
     public String[] getShowtimes(int mov) {
         String s = "";
         String[] results = {};
@@ -341,5 +351,54 @@ public class Model {
         }
         
         return results;
+    }
+    
+    /**
+     * Gets details of movie
+     * @param mov Movie_ID
+     * @return String array containing the movie title, movie description, rating and duration
+     */
+    public String[] getMovieDetails(int mov) {
+        String[] details = {"N/A", "N/A", "--", "0:00:00"};     //Default values
+        
+        try {
+            System.setProperty("jdbc.drivers", jdbc_drivers);
+ 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/movie_maniacs", "root", "");
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT * FROM movies WHERE Movie_ID = "+mov+"");
+            
+            if(rs.next()) {
+                details[0] = rs.getString(2);
+                details[1] = rs.getString(3);
+                details[2] = rs.getString(4);
+                details[3] = rs.getString(5);
+            }
+            
+        } catch (SQLException ex) {
+            //Logger lgr = Logger.getLogger(Version.class.getName());
+            //lgr.log(Level.SEVERE, ex.getMessage(), ex);
+               Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+               
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+
+            } catch (SQLException ex) {
+               // Logger lgr = Logger.getLogger(Version.class.getName());
+                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+                //lgr.log(Level.WARNING, ex.getMessage(), ex);
+                            }
+        }
+        
+        return details;
     }
 }
