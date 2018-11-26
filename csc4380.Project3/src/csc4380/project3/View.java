@@ -39,7 +39,7 @@ public class View extends javax.swing.JFrame {
         initComponents();
         
         showtimepanel.setVisible(false);          //sets the visibility of second panel to false until the user selects a movie
-        seatpanel.setVisible(false);          //blocks visibility of seat selection panel until user chooses a movie time
+        //seatpanel.setVisible(false);          //blocks visibility of seat selection panel until user chooses a movie time
         
         createMovieArray();
         
@@ -60,13 +60,21 @@ public class View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
+        nameDialog = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lastName = new javax.swing.JTextField();
         firstName = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        confirmationDialog = new javax.swing.JDialog();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         moviepanel = new javax.swing.JPanel();
@@ -136,15 +144,83 @@ public class View extends javax.swing.JFrame {
                 .addGap(46, 46, 46))
         );
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout nameDialogLayout = new javax.swing.GroupLayout(nameDialog.getContentPane());
+        nameDialog.getContentPane().setLayout(nameDialogLayout);
+        nameDialogLayout.setHorizontalGroup(
+            nameDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        nameDialogLayout.setVerticalGroup(
+            nameDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        confirmationDialog.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel3.setText("First Name:");
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel4.setText("Last Name:");
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel5.setText("Time:");
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel6.setText("Transacation ID:");
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel7.setText("Movie:");
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel8.setText("Seat:");
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel9.setText("Confirmation Page:");
+
+        javax.swing.GroupLayout confirmationDialogLayout = new javax.swing.GroupLayout(confirmationDialog.getContentPane());
+        confirmationDialog.getContentPane().setLayout(confirmationDialogLayout);
+        confirmationDialogLayout.setHorizontalGroup(
+            confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmationDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(161, 161, 161))
+            .addGroup(confirmationDialogLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(confirmationDialogLayout.createSequentialGroup()
+                        .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel6))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(148, Short.MAX_VALUE))
+        );
+        confirmationDialogLayout.setVerticalGroup(
+            confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(confirmationDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(confirmationDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmationDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -375,22 +451,34 @@ public class View extends javax.swing.JFrame {
     public void checkout()
     {
         System.out.println("hello");
-        jDialog1.setTitle("Confirmation");
-        jDialog1.setLocationRelativeTo(null);
-        jDialog1.setPreferredSize(new Dimension(555,414));
-        jDialog1.pack();
-        jDialog1.setVisible(true);
+        nameDialog.setTitle("Confirmation");
+        nameDialog.setLocationRelativeTo(null);
+        nameDialog.setPreferredSize(new Dimension(555,414));
+        nameDialog.pack();
+        nameDialog.setVisible(true);
+    }
+    
+    public void showConfirmation()
+    {
+        
     }
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog confirmationDialog;
     private javax.swing.JTextField firstName;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
@@ -405,6 +493,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JButton movie7;
     private javax.swing.JButton movie8;
     private javax.swing.JPanel moviepanel;
+    private javax.swing.JDialog nameDialog;
     private javax.swing.JPanel seatpanel;
     private javax.swing.JPanel showtimepanel;
     // End of variables declaration//GEN-END:variables
