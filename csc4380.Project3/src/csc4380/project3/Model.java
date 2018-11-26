@@ -35,6 +35,7 @@ public class Model {
     
     public Model() {
         propertySupport = new PropertyChangeSupport(this);
+        this.database();
     }
     
     public String getSampleProperty() {
@@ -70,14 +71,7 @@ public class Model {
     public int[][] getSeats(int show) {
         String s = "";
         int count = 0;
-        int[][] seats = {
-            new int[8],
-            new int[8],
-            new int[10],
-            new int[10],
-            new int[10],
-            new int[10],
-        };
+        int[][] seats = new int[5][10];
         
         
         try {
@@ -117,9 +111,9 @@ public class Model {
         }
         
         
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < (i < 2? 8:10); j++) {
-                seats[i][j] = Integer.parseInt(""+s.charAt(count));
+        for(int i = 0; i < 5; i++) {
+            for(int j = 0; j < 10; j++) {
+                seats[i][j] = Integer.parseInt(""+s.charAt(count++));
             }
         }
         
@@ -215,6 +209,13 @@ public class Model {
         return results;
     }
     
+    /**
+     * Creates ticket that contains person's name, reserved seat number and Show_ID
+     * Calls setSeat after ticket is created
+     * @param sid Show_ID
+     * @param seat Seat being reserved
+     * @param name Name of person buying ticket
+     */
     public void createTicket(int sid, String seat, String name) {
         try {
             System.setProperty("jdbc.drivers", jdbc_drivers);
@@ -247,5 +248,98 @@ public class Model {
                 //lgr.log(Level.WARNING, ex.getMessage(), ex);
                             }
         }
+        
+        setSeat(sid, seat, getSeats(sid));
+    }
+    
+    /**
+     * Sets the set availability for the specific seat number for the showtime
+     * Decrements the number of Available seats by 1
+     * @param sid Show_ID
+     * @param seat Seat number that is being reserved
+     * @param seats current seat availability for that showtime
+     */
+    public void setSeat(int sid, String seat, int[][] seats) {
+        String s = "";
+        seats[seat.charAt(0)-65][Integer.parseInt(seat.substring(1))] = 1;
+        for(int i = 0; i < 5; i++) {
+            for(int j = 0; j < 10; j++) {
+                s += seats[i][j];
+            }
+        }
+        try {
+            System.setProperty("jdbc.drivers", jdbc_drivers);
+ 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/movie_maniacs", "root", "");
+            st = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            st.addBatch("UPDATE showtime SET Seats = '"+s+"' WHERE Show_ID = "+sid+"");
+            st.addBatch("UPDATE showtime SET Available_Seats = Available_Seats - 1 WHERE Show_ID = "+sid+"");
+            st.executeBatch();
+
+        } catch (SQLException ex) {
+            //Logger lgr = Logger.getLogger(Version.class.getName());
+            //lgr.log(Level.SEVERE, ex.getMessage(), ex);
+               Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+               
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+
+            } catch (SQLException ex) {
+               // Logger lgr = Logger.getLogger(Version.class.getName());
+                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+                //lgr.log(Level.WARNING, ex.getMessage(), ex);
+                            }
+        }
+    }
+    
+    public String[] getShowtimes(int mov) {
+        String s = "";
+        String[] results = {};
+        try {
+            System.setProperty("jdbc.drivers", jdbc_drivers);
+ 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/movie_maniacs", "root", "");
+            st = con.createStatement();
+            st.executeQuery("SELECT * FROM showtime WHERE Movie_ID = "+mov+"");
+            
+            while(rs.next()) {
+                s += rs.getString(3)+"@";
+            }
+
+            results = s.split("@");
+        } catch (SQLException ex) {
+            //Logger lgr = Logger.getLogger(Version.class.getName());
+            //lgr.log(Level.SEVERE, ex.getMessage(), ex);
+               Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+               
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+
+            } catch (SQLException ex) {
+               // Logger lgr = Logger.getLogger(Version.class.getName());
+                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+                //lgr.log(Level.WARNING, ex.getMessage(), ex);
+                            }
+        }
+        
+        return results;
     }
 }
