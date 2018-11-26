@@ -26,7 +26,8 @@ public class Controller{
         views = view;
         views.addALSeats(new seatListener());
         views.addALMovie(new movieListener());
-        //views.addTimeAL(new timeButtonsListener());
+        views.addTimeAL(new timeButtonsListener());
+
         models = model;
         //model.getConnection();
         
@@ -52,11 +53,11 @@ public class Controller{
             views.showTimes();
         }
     }
-    /*
+
     class timeButtonsListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             views.showSeats();
         }
-    }*/
+    }
 }
 

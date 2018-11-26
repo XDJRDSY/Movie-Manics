@@ -90,7 +90,6 @@ public class View extends javax.swing.JFrame {
         movie1 = new javax.swing.JButton();
         movie2 = new javax.swing.JButton();
         movie3 = new javax.swing.JButton();
-        movie5 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         showtimepanel = new javax.swing.JPanel();
         seatpanel = new javax.swing.JPanel();
@@ -297,8 +296,6 @@ public class View extends javax.swing.JFrame {
 
         movie3.setText("Movie3");
 
-        movie5.setText("Movie5");
-
         javax.swing.GroupLayout moviepanelLayout = new javax.swing.GroupLayout(moviepanel);
         moviepanel.setLayout(moviepanelLayout);
         moviepanelLayout.setHorizontalGroup(
@@ -306,9 +303,6 @@ public class View extends javax.swing.JFrame {
             .addGroup(moviepanelLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addGroup(moviepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviepanelLayout.createSequentialGroup()
-                        .addComponent(movie5, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviepanelLayout.createSequentialGroup()
                         .addComponent(movie3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
@@ -330,9 +324,7 @@ public class View extends javax.swing.JFrame {
                 .addGroup(moviepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(movie3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(movie4, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(movie5, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(moviepanel);
@@ -393,7 +385,7 @@ public class View extends javax.swing.JFrame {
         movies[1]=movie2;
         movies[2]=movie3;
         movies[3]=movie4;
-        movies[4]=movie5;
+       
     }
     
     //set the movie title for movie selection panel
@@ -405,7 +397,7 @@ public class View extends javax.swing.JFrame {
     
     public void addALMovie(ActionListener a)
     {
-        for(int i=0; i<5; i++)
+        for(int i=0; i<4; i++)
         {
             movies[i].addActionListener(a);
             movie = i+1;
@@ -564,10 +556,9 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel lnLabel;
     private javax.swing.JLabel mLabel;
     public javax.swing.JButton movie1;
-    private javax.swing.JButton movie2;
+    public javax.swing.JButton movie2;
     private javax.swing.JButton movie3;
     private javax.swing.JButton movie4;
-    private javax.swing.JButton movie5;
     private javax.swing.JLabel movieTitle;
     private javax.swing.JPanel moviepanel;
     private javax.swing.JDialog nameDialog;
