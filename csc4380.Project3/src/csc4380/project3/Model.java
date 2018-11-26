@@ -313,7 +313,7 @@ public class Model {
      */
     public String[] getShowtimes(int mov) {
         String s = "";
-        String[] results = {};
+        String[] results = {""};
         try {
             System.setProperty("jdbc.drivers", jdbc_drivers);
  

@@ -19,21 +19,37 @@ import java.util.EventListener;
 public class Controller{
     
     private View views;
-    Model model;
+    private Model models;
 
     Controller (Model model, View view)
     {
         views = view;
         views.addALSeats(new seatListener());
-        model = new Model();
+        views.addALMovie(new movieListener());
+        models = model;
         //model.getConnection();
         
     }
     
-    class seatListener implements ActionListener {                                        
+    class seatListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             views.checkout();
         }      
+    }
+    
+    class movieListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            //int movieId = views.getMovie();
+            String s = views.movie1.getText();
+            int movieId = s.length();
+            s = s.substring(movieId-1, movieId);
+            movieId = Integer.parseInt(s);
+            
+            //System.out.println("Mov id is "+movieId);
+            views.addTimes(10,models.getShowtimes(movieId)); 
+            //how to populate this view with the data retrieved above
+            views.showTimes();
+        }
     }
 }
 
