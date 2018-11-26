@@ -319,7 +319,7 @@ public class Model {
  
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/movie_maniacs", "root", "");
             st = con.createStatement();
-            st.executeQuery("SELECT * FROM showtime WHERE Movie_ID = "+mov+"");
+            rs = st.executeQuery("SELECT * FROM showtime WHERE Movie_ID = "+mov+"");
             
             while(rs.next()) {
                 s += rs.getString(3)+"@";
