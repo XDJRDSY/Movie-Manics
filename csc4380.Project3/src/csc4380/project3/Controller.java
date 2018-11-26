@@ -19,14 +19,14 @@ import java.util.EventListener;
 public class Controller{
     
     private View views;
-    Model model;
+    private Model models;
 
     Controller (Model model, View view)
     {
         views = view;
         views.addALSeats(new seatListener());
         views.addALMovie(new movieListener());
-        model = new Model();
+        models = model;
         //model.getConnection();
         
     }
@@ -46,7 +46,7 @@ public class Controller{
             movieId = Integer.parseInt(s);
             
             //System.out.println("Mov id is "+movieId);
-            model.getShowtimes(movieId); 
+            views.addTimes(10,models.getShowtimes(movieId)); 
             //how to populate this view with the data retrieved above
             views.showTimes();
         }
