@@ -45,14 +45,6 @@ public class View extends javax.swing.JFrame {
         
         createMovieArray();
         
-        int num;
-        num = movies[1].getText().length();
-        System.out.println(num);
-        String s = movies[1].getText();
-        s = s.substring(num-1,num);
-        
-        System.out.print(s);
-        
         seatpanel.setLayout(new java.awt.GridLayout(5, 10, 10, 10));
         genSeats();
         addSeats();
@@ -102,7 +94,6 @@ public class View extends javax.swing.JFrame {
         movie8 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         showtimepanel = new javax.swing.JPanel();
-        jButton12 = new javax.swing.JButton();
         seatpanel = new javax.swing.JPanel();
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
@@ -369,12 +360,6 @@ public class View extends javax.swing.JFrame {
         showtimepanel.setBackground(new java.awt.Color(140, 0, 0));
         showtimepanel.setLayout(new javax.swing.BoxLayout(showtimepanel, javax.swing.BoxLayout.LINE_AXIS));
         showtimepanel.setLayout(new javax.swing.BoxLayout(showtimepanel, javax.swing.BoxLayout.Y_AXIS));    //changes the layout so that buttons display vertically instead of horizontally
-
-        jButton12.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jButton12.setText("16/56 12:00pm - 10:00pm");
-        jButton12.setPreferredSize(new java.awt.Dimension(478, 50));
-        showtimepanel.add(jButton12);
-
         jScrollPane3.setViewportView(showtimepanel);
         jScrollPane3.setWheelScrollingEnabled(true);
         jScrollPane3.getVerticalScrollBar().setUnitIncrement(16);   //increase the distance the scroll bar moves
@@ -463,12 +448,16 @@ public class View extends javax.swing.JFrame {
     
     
     //this method adds the movie times button to the movietime panel. i indicates a button 1-10 to add and the time is a string
-    public void addTimes(int i, String time)
+    public void addTimes(String time[])
     {
-        movietimes[i-1] = new JButton();
-        movietimes[i-1].setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        movietimes[i-1].setPreferredSize(new java.awt.Dimension(478, 50));
-        showtimepanel.add(movietimes[i-1]);
+        for(int i=0; i<time.length-1; i++)
+        {
+            movietimes[i] = new JButton(time[i]);
+            movietimes[i].setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+            movietimes[i].setPreferredSize(new java.awt.Dimension(478, 50));
+            showtimepanel.add(movietimes[i]);
+        }
+       
     }
     
     public void addTimeAL(ActionListener a)
@@ -583,7 +572,6 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel fName;
     private javax.swing.JTextField firstName;
     private javax.swing.JLabel fnLabel;
-    private javax.swing.JButton jButton12;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
@@ -594,14 +582,14 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JTextField lastName;
     private javax.swing.JLabel lnLabel;
     private javax.swing.JLabel mLabel;
-    public javax.swing.JButton movie1;
-    public javax.swing.JButton movie2;
-    public javax.swing.JButton movie3;
-    public javax.swing.JButton movie4;
-    public javax.swing.JButton movie5;
-    public javax.swing.JButton movie6;
-    public javax.swing.JButton movie7;
-    public javax.swing.JButton movie8;
+    private javax.swing.JButton movie1;
+    private javax.swing.JButton movie2;
+    private javax.swing.JButton movie3;
+    private javax.swing.JButton movie4;
+    private javax.swing.JButton movie5;
+    private javax.swing.JButton movie6;
+    private javax.swing.JButton movie7;
+    private javax.swing.JButton movie8;
     private javax.swing.JLabel movieTitle;
     private javax.swing.JPanel moviepanel;
     private javax.swing.JDialog nameDialog;
