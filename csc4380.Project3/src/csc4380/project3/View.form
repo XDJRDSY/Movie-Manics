@@ -438,19 +438,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="movie7" min="-2" pref="162" max="-2" attributes="0"/>
-                              <EmptySpace pref="65" max="32767" attributes="0"/>
-                              <Component id="movie8" min="-2" pref="162" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="movie5" min="-2" pref="162" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="movie6" min="-2" pref="162" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="movie3" min="-2" pref="162" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="65" max="32767" attributes="0"/>
                               <Component id="movie4" min="-2" pref="162" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -477,15 +471,7 @@
                           <Component id="movie4" alignment="3" min="-2" pref="235" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="movie6" min="-2" pref="235" max="-2" attributes="0"/>
-                          <Component id="movie5" alignment="1" min="-2" pref="235" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="movie7" min="-2" pref="235" max="-2" attributes="0"/>
-                          <Component id="movie8" alignment="0" min="-2" pref="235" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="movie5" min="-2" pref="235" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -515,24 +501,9 @@
                 <Property name="text" type="java.lang.String" value="Movie3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="movie6">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Movie6"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JButton" name="movie5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Movie5"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="movie7">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Movie7"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="movie8">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Movie8"/>
               </Properties>
             </Component>
           </SubComponents>
