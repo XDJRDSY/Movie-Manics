@@ -39,6 +39,15 @@ public class Controller{
     
     class movieListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+            //int movieId = views.getMovie();
+            String s = views.movie1.getText();
+            int movieId = s.length();
+            s = s.substring(movieId-1, movieId);
+            movieId = Integer.parseInt(s);
+            
+            //System.out.println("Mov id is "+movieId);
+            model.getShowtimes(movieId); 
+            //how to populate this view with the data retrieved above
             views.showTimes();
         }
     }
