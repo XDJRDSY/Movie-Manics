@@ -25,15 +25,22 @@ public class Controller{
     {
         views = view;
         views.addALSeats(new seatListener());
+        views.addALMovie(new movieListener());
         model = new Model();
         //model.getConnection();
         
     }
     
-    class seatListener implements ActionListener {                                        
+    class seatListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             views.checkout();
         }      
+    }
+    
+    class movieListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            views.showTimes();
+        }
     }
 }
 
