@@ -300,4 +300,46 @@ public class Model {
                             }
         }
     }
+    
+    public String[] getShowtimes(int mov) {
+        String s = "";
+        String[] results = {};
+        try {
+            System.setProperty("jdbc.drivers", jdbc_drivers);
+ 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/movie_maniacs", "root", "");
+            st = con.createStatement();
+            st.executeQuery("SELECT * FROM showtime WHERE Movie_ID = "+mov+"");
+            
+            while(rs.next()) {
+                s += rs.getString(3)+"@";
+            }
+
+            results = s.split("@");
+        } catch (SQLException ex) {
+            //Logger lgr = Logger.getLogger(Version.class.getName());
+            //lgr.log(Level.SEVERE, ex.getMessage(), ex);
+               Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+               
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+
+            } catch (SQLException ex) {
+               // Logger lgr = Logger.getLogger(Version.class.getName());
+                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+                //lgr.log(Level.WARNING, ex.getMessage(), ex);
+                            }
+        }
+        
+        return results;
+    }
 }
