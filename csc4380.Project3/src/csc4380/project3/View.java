@@ -5,11 +5,13 @@
  */
 package csc4380.project3;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.io.IOException;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -34,15 +36,16 @@ public class View extends javax.swing.JFrame {
         setLocation(x, y);
         
         this.setResizable(false);
-
+        
+       
+        
         initComponents();
-
-       // showtimepanel.setVisible(false);          //sets the visibility of second panel to false until the user selects a movie
+        
+        
+        showtimepanel.setVisible(false);          //sets the visibility of second panel to false until the user selects a movie
         seatpanel.setVisible(false);          //blocks visibility of seat selection panel until user chooses a movie time
         
         createMovieArray();
-        addmovieTime();
-        
         
         seatpanel.setLayout(new java.awt.GridLayout(5, 10, 10, 10));
         genSeats();
@@ -93,16 +96,6 @@ public class View extends javax.swing.JFrame {
         movie8 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         showtimepanel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
         seatpanel = new javax.swing.JPanel();
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
@@ -291,7 +284,7 @@ public class View extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Movie Maniacs!");
+        setTitle("Movie Manics!");
         setBackground(new java.awt.Color(0, 0, 0));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -369,37 +362,6 @@ public class View extends javax.swing.JFrame {
         showtimepanel.setBackground(new java.awt.Color(140, 0, 0));
         showtimepanel.setLayout(new javax.swing.BoxLayout(showtimepanel, javax.swing.BoxLayout.LINE_AXIS));
         showtimepanel.setLayout(new javax.swing.BoxLayout(showtimepanel, javax.swing.BoxLayout.Y_AXIS));    //changes the layout so that buttons display vertically instead of horizontally
-
-        jButton1.setText("jButton1");
-        showtimepanel.add(jButton1);
-
-        jButton2.setText("jButton2");
-        showtimepanel.add(jButton2);
-
-        jButton3.setText("jButton3");
-        showtimepanel.add(jButton3);
-
-        jButton4.setText("jButton4");
-        showtimepanel.add(jButton4);
-
-        jButton5.setText("jButton5");
-        showtimepanel.add(jButton5);
-
-        jButton6.setText("jButton6");
-        showtimepanel.add(jButton6);
-
-        jButton7.setText("jButton7");
-        showtimepanel.add(jButton7);
-
-        jButton8.setText("jButton8");
-        showtimepanel.add(jButton8);
-
-        jButton9.setText("jButton9");
-        showtimepanel.add(jButton9);
-
-        jButton10.setText("jButton10");
-        showtimepanel.add(jButton10);
-
         jScrollPane3.setViewportView(showtimepanel);
         jScrollPane3.setWheelScrollingEnabled(true);
         jScrollPane3.getVerticalScrollBar().setUnitIncrement(16);   //increase the distance the scroll bar moves
@@ -486,33 +448,21 @@ public class View extends javax.swing.JFrame {
         showtimepanel.setVisible(true);
     }
     
-    public void addmovieTime()
-    {
-        movietimes[0] = jButton1;
-        movietimes[1] = jButton2;
-        movietimes[2] = jButton3;
-        movietimes[3] = jButton4;
-        movietimes[4] = jButton5;
-        movietimes[5] = jButton6;
-        movietimes[6] = jButton7;
-        movietimes[7] = jButton8;
-        movietimes[8] = jButton9;
-        movietimes[9] = jButton10;
-    }    
     
     //this method adds the movie times button to the movietime panel. i indicates a button 1-10 to add and the time is a string
     public void addTimes(String time[])
     {
-        for(int i=0; i<time.length-1; i++)
+        for(int i=0; i<time.length; i++)
         {
+            movietimes[i] = new JButton();
             movietimes[i].setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
             movietimes[i].setPreferredSize(new java.awt.Dimension(478, 50));
             movietimes[i].setText(time[i]);
+            movietimes[i].setVisible(true);
             showtimepanel.add(movietimes[i]);
         }
-       
+        showtimepanel.setVisible(true);
     }
-    
     
     public void addTimeAL(ActionListener a)
     {
@@ -626,16 +576,6 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel fName;
     private javax.swing.JTextField firstName;
     private javax.swing.JLabel fnLabel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
@@ -647,13 +587,13 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel lnLabel;
     private javax.swing.JLabel mLabel;
     public javax.swing.JButton movie1;
-    public javax.swing.JButton movie2;
-    public javax.swing.JButton movie3;
-    public javax.swing.JButton movie4;
-    public javax.swing.JButton movie5;
-    public javax.swing.JButton movie6;
-    public javax.swing.JButton movie7;
-    public javax.swing.JButton movie8;
+    private javax.swing.JButton movie2;
+    private javax.swing.JButton movie3;
+    private javax.swing.JButton movie4;
+    private javax.swing.JButton movie5;
+    private javax.swing.JButton movie6;
+    private javax.swing.JButton movie7;
+    private javax.swing.JButton movie8;
     private javax.swing.JLabel movieTitle;
     private javax.swing.JPanel moviepanel;
     private javax.swing.JDialog nameDialog;
