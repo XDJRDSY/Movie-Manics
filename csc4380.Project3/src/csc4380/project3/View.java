@@ -35,12 +35,23 @@ public class View extends javax.swing.JFrame {
         
         this.setResizable(false);
         
+       
+        
         initComponents();
+        
         
         showtimepanel.setVisible(false);          //sets the visibility of second panel to false until the user selects a movie
         seatpanel.setVisible(false);          //blocks visibility of seat selection panel until user chooses a movie time
         
         createMovieArray();
+        
+        int num;
+        num = movies[1].getText().length();
+        System.out.println(num);
+        String s = movies[1].getText();
+        s = s.substring(num-1,num);
+        
+        System.out.print(s);
         
         seatpanel.setLayout(new java.awt.GridLayout(5, 10, 10, 10));
         genSeats();
@@ -583,14 +594,14 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JTextField lastName;
     private javax.swing.JLabel lnLabel;
     private javax.swing.JLabel mLabel;
-    private javax.swing.JButton movie1;
-    private javax.swing.JButton movie2;
-    private javax.swing.JButton movie3;
-    private javax.swing.JButton movie4;
-    private javax.swing.JButton movie5;
-    private javax.swing.JButton movie6;
-    private javax.swing.JButton movie7;
-    private javax.swing.JButton movie8;
+    public javax.swing.JButton movie1;
+    public javax.swing.JButton movie2;
+    public javax.swing.JButton movie3;
+    public javax.swing.JButton movie4;
+    public javax.swing.JButton movie5;
+    public javax.swing.JButton movie6;
+    public javax.swing.JButton movie7;
+    public javax.swing.JButton movie8;
     private javax.swing.JLabel movieTitle;
     private javax.swing.JPanel moviepanel;
     private javax.swing.JDialog nameDialog;
