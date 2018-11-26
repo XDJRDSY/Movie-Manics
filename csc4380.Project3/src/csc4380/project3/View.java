@@ -68,13 +68,19 @@ public class View extends javax.swing.JFrame {
         firstName = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         confirmationDialog = new javax.swing.JDialog();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        fnLabel = new javax.swing.JLabel();
+        lnLabel = new javax.swing.JLabel();
+        tLabel = new javax.swing.JLabel();
+        IDLabel = new javax.swing.JLabel();
+        mLabel = new javax.swing.JLabel();
+        sLabel = new javax.swing.JLabel();
+        confirmationDialogTitle = new javax.swing.JLabel();
+        fName = new javax.swing.JLabel();
+        lName = new javax.swing.JLabel();
+        movieTitle = new javax.swing.JLabel();
+        timeSlot = new javax.swing.JLabel();
+        transID = new javax.swing.JLabel();
+        seat = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         moviepanel = new javax.swing.JPanel();
@@ -157,70 +163,123 @@ public class View extends javax.swing.JFrame {
 
         confirmationDialog.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabel3.setText("First Name:");
+        fnLabel.setBackground(new java.awt.Color(255, 255, 255));
+        fnLabel.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        fnLabel.setText("First Name:");
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabel4.setText("Last Name:");
+        lnLabel.setBackground(new java.awt.Color(255, 255, 255));
+        lnLabel.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        lnLabel.setText("Last Name:");
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabel5.setText("Time:");
+        tLabel.setBackground(new java.awt.Color(255, 255, 255));
+        tLabel.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        tLabel.setText("Time:");
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabel6.setText("Transacation ID:");
+        IDLabel.setBackground(new java.awt.Color(255, 255, 255));
+        IDLabel.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        IDLabel.setText("Transacation ID:");
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabel7.setText("Movie:");
+        mLabel.setBackground(new java.awt.Color(255, 255, 255));
+        mLabel.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        mLabel.setText("Movie:");
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabel8.setText("Seat:");
+        sLabel.setBackground(new java.awt.Color(255, 255, 255));
+        sLabel.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        sLabel.setText("Seat:");
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabel9.setText("Confirmation Page:");
+        confirmationDialogTitle.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        confirmationDialogTitle.setText("Confirmation Page:");
+
+        fName.setBackground(new java.awt.Color(255, 255, 255));
+        fName.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+
+        lName.setBackground(new java.awt.Color(255, 255, 255));
+        lName.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+
+        movieTitle.setBackground(new java.awt.Color(255, 255, 255));
+        movieTitle.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+
+        timeSlot.setBackground(new java.awt.Color(255, 255, 255));
+        timeSlot.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+
+        transID.setBackground(new java.awt.Color(255, 255, 255));
+        transID.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+
+        seat.setBackground(new java.awt.Color(255, 255, 255));
+        seat.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout confirmationDialogLayout = new javax.swing.GroupLayout(confirmationDialog.getContentPane());
         confirmationDialog.getContentPane().setLayout(confirmationDialogLayout);
         confirmationDialogLayout.setHorizontalGroup(
             confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmationDialogLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(161, 161, 161))
             .addGroup(confirmationDialogLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
                 .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(confirmationDialogLayout.createSequentialGroup()
-                        .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel6))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(148, Short.MAX_VALUE))
+                        .addGap(25, 25, 25)
+                        .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(confirmationDialogLayout.createSequentialGroup()
+                                .addComponent(mLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(movieTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(confirmationDialogLayout.createSequentialGroup()
+                                .addComponent(lnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lName, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(confirmationDialogLayout.createSequentialGroup()
+                                .addComponent(IDLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(transID, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(confirmationDialogLayout.createSequentialGroup()
+                                .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(sLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(confirmationDialogLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(seat, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(timeSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(confirmationDialogLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(fnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fName, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmationDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(confirmationDialogTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(171, 171, 171))
         );
         confirmationDialogLayout.setVerticalGroup(
             confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(confirmationDialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(confirmationDialogTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(fName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fnLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(confirmationDialogLayout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmationDialogLayout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))))
+                    .addComponent(lnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(movieTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(timeSlot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(seat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(transID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(IDLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -419,7 +478,7 @@ public class View extends javax.swing.JFrame {
         }
     }
     
-    public void removeSeats()
+    public void removeSeats(int i, int j)
     {
         
     }
@@ -450,7 +509,6 @@ public class View extends javax.swing.JFrame {
     //this method should be called from control when the seat button is clicked. opens a dialog and asks the user for first and last name
     public void checkout()
     {
-        System.out.println("hello");
         nameDialog.setTitle("Confirmation");
         nameDialog.setLocationRelativeTo(null);
         nameDialog.setPreferredSize(new Dimension(555,414));
@@ -458,32 +516,39 @@ public class View extends javax.swing.JFrame {
         nameDialog.setVisible(true);
     }
     
-    public void showConfirmation()
+    public void showConfirmation(String fname, String lname, String movie, String time, String chair, String transaction)
     {
-        
+        fName.setText(fname);
+        lName.setText(lname);
+        movieTitle.setText(movie);
+        timeSlot.setText(time);
+        seat.setText(chair);
+        transID.setText(transaction);
+        confirmationDialog.pack();
+        confirmationDialog.setVisible(true);
     }
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel IDLabel;
     private javax.swing.JDialog confirmationDialog;
+    private javax.swing.JLabel confirmationDialogTitle;
+    private javax.swing.JLabel fName;
     private javax.swing.JTextField firstName;
+    private javax.swing.JLabel fnLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lName;
     private javax.swing.JTextField lastName;
+    private javax.swing.JLabel lnLabel;
+    private javax.swing.JLabel mLabel;
     private javax.swing.JButton movie1;
     private javax.swing.JButton movie2;
     private javax.swing.JButton movie3;
@@ -492,9 +557,15 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JButton movie6;
     private javax.swing.JButton movie7;
     private javax.swing.JButton movie8;
+    private javax.swing.JLabel movieTitle;
     private javax.swing.JPanel moviepanel;
     private javax.swing.JDialog nameDialog;
+    private javax.swing.JLabel sLabel;
+    private javax.swing.JLabel seat;
     private javax.swing.JPanel seatpanel;
     private javax.swing.JPanel showtimepanel;
+    private javax.swing.JLabel tLabel;
+    private javax.swing.JLabel timeSlot;
+    private javax.swing.JLabel transID;
     // End of variables declaration//GEN-END:variables
 }
