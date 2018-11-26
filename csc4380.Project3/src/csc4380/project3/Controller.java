@@ -46,7 +46,7 @@ public class Controller{
             movieId = Integer.parseInt(s);
             
             //System.out.println("Mov id is "+movieId);
-            views.addTimes(10,models.getShowtimes(movieId)); 
+            views.addTimes(models.getShowtimes(movieId)); 
             //how to populate this view with the data retrieved above
             views.showTimes();
         }
