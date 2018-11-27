@@ -16,10 +16,11 @@ import java.util.EventListener;
  *
  * @author Joana
  */
-public class Controller{
+public class Controller {
     
     private View views;
     private Model models;
+    public int movieId;
 
     Controller (Model model, View view)
     {
@@ -33,6 +34,22 @@ public class Controller{
         
     }
     
+//        public void actionPerformed(ActionEvent e) {
+//            System.out.println("this is before movieId nums are set");
+//            if (e.getSource() == views.movie1) {
+//                System.out.println("movId 1 is being set");
+//                movieId = 1;
+//            } else if (e.getSource() == views.movie2) {
+//                System.out.println("movId 2 is being set");
+//                movieId = 2;
+//            } else if (e.getSource() == views.movie3) {
+//                System.out.println("movId 3 is being set");
+//                movieId = 3;
+//            } else if (e.getSource() == views.movie4) {
+//                System.out.println("movId 4 is being set");
+//                movieId = 4;
+//        }
+//    }
     class seatListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             views.checkout();
@@ -42,21 +59,28 @@ public class Controller{
     class movieListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             //int movieId = views.getMovie();
-            String s = views.movie1.getText();
-            int movieId = s.length();
-            s = s.substring(movieId-1, movieId);
-            movieId = Integer.parseInt(s);
-            
-            //System.out.println("Mov id is "+movieId);
+            if (e.getSource() == views.movie1) {
+                movieId = 1;
+            } else if (e.getSource() == views.movie2) {
+                movieId = 2;
+            } else if (e.getSource() == views.movie3) {
+                movieId = 3;
+            } else if (e.getSource() == views.movie4) {
+                movieId = 4;
+            }
+            System.out.println("CONTROLLER: Mov id here is "+movieId);
             views.addTimes(models.getShowtimes(movieId)); 
             views.showTimes();
         }
     }
 
-    class timeButtonsListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            views.showSeats();
-        }
-    }
+//    class timeButtonsListener implements ActionListener {
+//        public void actionPerformed(ActionEvent e) {
+//            views.genSeats();
+//            views.addSeats(model.getSeats(movieId));
+//            
+//            views.showSeats();
+//        }
+//    }
 }
 
