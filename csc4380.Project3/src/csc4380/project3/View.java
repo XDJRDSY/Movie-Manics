@@ -533,14 +533,13 @@ public class View extends javax.swing.JFrame {
     }
     
     
-    public void showConfirmation(String fname, String lname, String movie, String time, String chair/*, String transaction*/)
+    public void showConfirmation(String fname, String lname, String movie, String time, String chair)
     {
         fName.setText(fname);
         lName.setText(lname);
         movieTitle.setText(movie);
         timeSlot.setText(time);
         seat.setText(chair);
-        //transID.setText(transaction);
         confirmationDialog.pack();
         confirmationDialog.setLocationRelativeTo(null);
         confirmationDialog.setVisible(true);
@@ -556,10 +555,8 @@ public class View extends javax.swing.JFrame {
 
     public void closeTicket() {
         confirmationDialog.dispose();
-        seatpanel.removeAll();
-        seatpanel.repaint();
-        showtimepanel.removeAll();
-        showtimepanel.repaint();
+        seatpanel.setVisible(false);
+        showtimepanel.setVisible(false);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton confirmButton;
