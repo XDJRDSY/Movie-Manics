@@ -43,7 +43,6 @@ public class Controller {
     
     class movieListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            //int movieId = views.getMovie();
             if (e.getSource() == views.movie1) {
                 movieId = 1;
             } else if (e.getSource() == views.movie2) {
