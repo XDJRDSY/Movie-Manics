@@ -53,7 +53,7 @@ public class Controller {
             } else if (e.getSource() == views.movie4) {
                 movieId = 4;
             }
-            System.out.println("CONTROLLER: Mov id here is "+movieId);
+            
             views.addTimes(models.getShowtimes(movieId)); 
             views.showTimes();
             views.addTimeAL(new timeButtonsListener());
