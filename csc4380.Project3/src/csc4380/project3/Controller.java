@@ -26,7 +26,7 @@ public class Controller{
         views = view;
         views.addALSeats(new seatListener());
         views.addALMovie(new movieListener());
-        views.addTimeAL(new timeButtonsListener());
+        //views.addTimeAL(new timeButtonsListener());
 
         models = model;
         //model.getConnection();
@@ -49,7 +49,6 @@ public class Controller{
             
             //System.out.println("Mov id is "+movieId);
             views.addTimes(models.getShowtimes(movieId)); 
-            //how to populate this view with the data retrieved above
             views.showTimes();
         }
     }
