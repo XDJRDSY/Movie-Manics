@@ -117,7 +117,11 @@ public class Model {
         
         for(int i = 0; i < 5; i++) {
             for(int j = 0; j < 10; j++) {
-                seats[i][j] = Integer.parseInt(""+s.charAt(count++));
+                if(!s.equals("")) 
+                    seats[i][j] = Integer.parseInt(Character.toString(s.charAt(count)));
+                else 
+                    seats[i][j] = 1;
+                count++;
             }
         }
         
@@ -267,7 +271,7 @@ public class Model {
      */
     public void setSeat(int sid, String seat, int[][] seats) {
         String s = "";
-        seats[seat.charAt(0)-65][Integer.parseInt(seat.substring(1))] = 1;
+        seats[seat.charAt(0)-65][Integer.parseInt(seat.substring(1))-1] = 1;
         for(int i = 0; i < 5; i++) {
             for(int j = 0; j < 10; j++) {
                 s += seats[i][j];
@@ -400,5 +404,45 @@ public class Model {
         }
         
         return details;
+    }
+    
+    public int getShowID(int mov, String time) {
+        int sid = 0;
+        try {
+            System.setProperty("jdbc.drivers", jdbc_drivers);
+ 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/movie_maniacs", "root", "");
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT * FROM showtime WHERE Movie_ID = "+mov+" AND Showtime = '"+time+"'");
+            
+            if(rs.next()) {
+                sid = Integer.parseInt(rs.getString(1));
+            }
+            
+        } catch (SQLException ex) {
+            //Logger lgr = Logger.getLogger(Version.class.getName());
+            //lgr.log(Level.SEVERE, ex.getMessage(), ex);
+               Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+               
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+
+            } catch (SQLException ex) {
+               // Logger lgr = Logger.getLogger(Version.class.getName());
+                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+                //lgr.log(Level.WARNING, ex.getMessage(), ex);
+                            }
+        }
+        
+        return sid;
     }
 }

@@ -64,7 +64,7 @@ public class Controller {
         public void actionPerformed(ActionEvent e) {
             for (int i = 0; i < 10; i++) {
                 if (e.getSource() == views.movietimes[i])  {
-                    showId = 1;
+                    showId = models.getShowID(movieId, views.movietimes[i].getText());
                     break;
                 }
             }
