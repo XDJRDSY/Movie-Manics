@@ -21,11 +21,11 @@ public class Controller {
     private View views;
     private Model models;
     public int movieId, showId;
-
+    public String seat, time;
     Controller (Model model, View view)
     {
         views = view;
-        views.addALSeats(new seatListener());
+        
         views.addALMovie(new movieListener());
         
 
@@ -37,7 +37,9 @@ public class Controller {
 
     class seatListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+            seat = ((javax.swing.JButton)e.getSource()).getText();
             views.checkout();
+            views.addConfirmAL(new confirmListener());
         }      
     }
     
@@ -52,7 +54,7 @@ public class Controller {
             } else if (e.getSource() == views.movie4) {
                 movieId = 4;
             }
-            
+            System.out.println("CONTROLLER: Mov id here is "+movieId);
             views.addTimes(models.getShowtimes(movieId)); 
             views.showTimes();
             views.addTimeAL(new timeButtonsListener());
@@ -63,6 +65,7 @@ public class Controller {
         public void actionPerformed(ActionEvent e) {
             for (int i = 0; i < 10; i++) {
                 if (e.getSource() == views.movietimes[i])  {
+                    time = ((javax.swing.JButton)e.getSource()).getText();
                     showId = models.getShowID(movieId, views.movietimes[i].getText());
                     break;
                 }
@@ -73,6 +76,15 @@ public class Controller {
             views.addSeats();
             
             views.showSeats(models.getSeats(showId));
+            views.addALSeats(new seatListener());
+        }
+    }
+    
+    class confirmListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            views.setNames();
+            views.showConfirmation(views.getfName(), views.getlName(), models.getMovie(movieId), time, seat);
+            views.closeConfirmation();
         }
     }
 }

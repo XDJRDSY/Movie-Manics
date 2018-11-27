@@ -72,7 +72,6 @@ public class View extends javax.swing.JFrame {
         fnLabel = new javax.swing.JLabel();
         lnLabel = new javax.swing.JLabel();
         tLabel = new javax.swing.JLabel();
-        IDLabel = new javax.swing.JLabel();
         mLabel = new javax.swing.JLabel();
         sLabel = new javax.swing.JLabel();
         confirmationDialogTitle = new javax.swing.JLabel();
@@ -80,7 +79,6 @@ public class View extends javax.swing.JFrame {
         lName = new javax.swing.JLabel();
         movieTitle = new javax.swing.JLabel();
         timeSlot = new javax.swing.JLabel();
-        transID = new javax.swing.JLabel();
         seat = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -171,10 +169,6 @@ public class View extends javax.swing.JFrame {
         tLabel.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         tLabel.setText("Time:");
 
-        IDLabel.setBackground(new java.awt.Color(255, 255, 255));
-        IDLabel.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        IDLabel.setText("Transacation ID:");
-
         mLabel.setBackground(new java.awt.Color(255, 255, 255));
         mLabel.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         mLabel.setText("Movie:");
@@ -198,9 +192,6 @@ public class View extends javax.swing.JFrame {
         timeSlot.setBackground(new java.awt.Color(255, 255, 255));
         timeSlot.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
 
-        transID.setBackground(new java.awt.Color(255, 255, 255));
-        transID.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-
         seat.setBackground(new java.awt.Color(255, 255, 255));
         seat.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
 
@@ -222,25 +213,19 @@ public class View extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lName, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(confirmationDialogLayout.createSequentialGroup()
-                                .addComponent(IDLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(transID, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(confirmationDialogLayout.createSequentialGroup()
                                 .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(sLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(confirmationDialogLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(seat, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(timeSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(timeSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(seat, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(confirmationDialogLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(fnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(fName, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmationDialogLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(confirmationDialogTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -271,11 +256,7 @@ public class View extends javax.swing.JFrame {
                 .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(seat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(transID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(IDLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -518,9 +499,11 @@ public class View extends javax.swing.JFrame {
     public void addConfirmAL(ActionListener a)
     {
         confirmButton.addActionListener(a);
+    }
+    
+    public void setNames() {
         custfname = firstName.getText();
         custlname = lastName.getText();
-        
     }
    
     //return customer first name
@@ -536,22 +519,25 @@ public class View extends javax.swing.JFrame {
     }
     
     
-    public void showConfirmation(String fname, String lname, String movie, String time, String chair, String transaction)
+    public void showConfirmation(String fname, String lname, String movie, String time, String chair/*, String transaction*/)
     {
         fName.setText(fname);
         lName.setText(lname);
         movieTitle.setText(movie);
         timeSlot.setText(time);
         seat.setText(chair);
-        transID.setText(transaction);
+        //transID.setText(transaction);
         confirmationDialog.pack();
+        confirmationDialog.setLocationRelativeTo(null);
         confirmationDialog.setVisible(true);
     }
     
+    public void closeConfirmation() {
+        nameDialog.dispose();
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel IDLabel;
     private javax.swing.JButton confirmButton;
     private javax.swing.JDialog confirmationDialog;
     private javax.swing.JLabel confirmationDialogTitle;
@@ -581,6 +567,5 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JPanel showtimepanel;
     private javax.swing.JLabel tLabel;
     private javax.swing.JLabel timeSlot;
-    private javax.swing.JLabel transID;
     // End of variables declaration//GEN-END:variables
 }

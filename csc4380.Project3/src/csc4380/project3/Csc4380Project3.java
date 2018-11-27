@@ -22,7 +22,6 @@ public class Csc4380Project3 {
         View view = new View(model);
         Controller controller = new Controller (model, view);
         view.setVisible(true);
-        
     }
     
 }
