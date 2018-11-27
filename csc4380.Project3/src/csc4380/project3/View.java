@@ -5,7 +5,6 @@
  */
 package csc4380.project3;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
@@ -415,12 +414,15 @@ public class View extends javax.swing.JFrame {
     public void showTimes()
     {
         showtimepanel.setVisible(true);
+        showtimepanel.revalidate();
     }
     
     
     //this method adds the movie times button to the movietime panel. i indicates a button 1-10 to add and the time is a string
     public void addTimes(String time[])
     {
+        showtimepanel.removeAll();
+        showtimepanel.repaint();
         for(int i=0; i<time.length; i++)
         {
             movietimes[i] = new JButton();
@@ -430,7 +432,6 @@ public class View extends javax.swing.JFrame {
             movietimes[i].setVisible(true);
             showtimepanel.add(movietimes[i]);
         }
-        showtimepanel.setVisible(true);
     }
 
     public void addTimeAL(ActionListener a)
