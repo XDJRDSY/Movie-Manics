@@ -30,7 +30,9 @@ public class Controller {
         //views.addTimeAL(new timeButtonsListener());
 
         models = model;
-        
+        for (int i = 1; i <= 4; i++) {
+            views.setMovieTitle(model.getMovie(i), i);
+        }
     }
 
     class seatListener implements ActionListener {
