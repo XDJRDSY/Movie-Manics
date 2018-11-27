@@ -83,7 +83,7 @@ public class Model {
  
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/movie_maniacs", "root", "");
             st = con.createStatement();
-            rs = st.executeQuery("SELECT * FROM showtime WHERE Movie_ID = '"+show+"'");
+            rs = st.executeQuery("SELECT * FROM showtime WHERE Show_ID = "+show+"");
 
             if (rs.next()) {
                 s = rs.getString(6);

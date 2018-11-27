@@ -5,6 +5,7 @@
  */
 package csc4380.project3;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
@@ -439,10 +440,14 @@ public class View extends javax.swing.JFrame {
     {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
-                if (available[i][j] == 1)
-                    disableSeat(i,j);
-                else
+                if (available[i][j] == 1) {
+                    seats[i][j].setEnabled(false);
+                    seats[i][j].setBackground(new Color(200,200,200));
+                } else {
                     seats[i][j].setEnabled(true);
+                    seats[i][j].setBackground(new Color(50,50,200));
+                    seats[i][j].setForeground(Color.WHITE);
+                }
             }
         }
         seatpanel.setVisible(true);
