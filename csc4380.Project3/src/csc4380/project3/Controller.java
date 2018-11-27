@@ -30,26 +30,9 @@ public class Controller {
         //views.addTimeAL(new timeButtonsListener());
 
         models = model;
-        //model.getConnection();
         
     }
-    
-//        public void actionPerformed(ActionEvent e) {
-//            System.out.println("this is before movieId nums are set");
-//            if (e.getSource() == views.movie1) {
-//                System.out.println("movId 1 is being set");
-//                movieId = 1;
-//            } else if (e.getSource() == views.movie2) {
-//                System.out.println("movId 2 is being set");
-//                movieId = 2;
-//            } else if (e.getSource() == views.movie3) {
-//                System.out.println("movId 3 is being set");
-//                movieId = 3;
-//            } else if (e.getSource() == views.movie4) {
-//                System.out.println("movId 4 is being set");
-//                movieId = 4;
-//        }
-//    }
+
     class seatListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             views.checkout();
