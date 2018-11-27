@@ -557,8 +557,8 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel mLabel;
     public javax.swing.JButton movie1;
     public javax.swing.JButton movie2;
-    private javax.swing.JButton movie3;
-    private javax.swing.JButton movie4;
+    public javax.swing.JButton movie3;
+    public javax.swing.JButton movie4;
     private javax.swing.JLabel movieTitle;
     private javax.swing.JPanel moviepanel;
     private javax.swing.JDialog nameDialog;
