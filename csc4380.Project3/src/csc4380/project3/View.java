@@ -438,14 +438,23 @@ public class View extends javax.swing.JFrame {
     {
         for(int i=0; i<10; i++)
         {
-            movietimes[i].addActionListener(a);
+            if(movietimes[i] != null)
+                movietimes[i].addActionListener(a);
         }
     }
     
     
     //displays the seat panel
-    public void showSeats()
+    public void showSeats(int[][] available)
     {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (available[i][j] == 1)
+                    disableSeat(i,j);
+                else
+                    seats[i][j].setEnabled(true);
+            }
+        }
         seatpanel.setVisible(true);
     }
     
@@ -481,6 +490,7 @@ public class View extends javax.swing.JFrame {
             }
         }
     }
+    
     //adds the seats to the panel
     public void addSeats()
     {

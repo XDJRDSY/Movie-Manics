@@ -20,14 +20,14 @@ public class Controller {
     
     private View views;
     private Model models;
-    public int movieId;
+    public int movieId, showId;
 
     Controller (Model model, View view)
     {
         views = view;
         views.addALSeats(new seatListener());
         views.addALMovie(new movieListener());
-        //views.addTimeAL(new timeButtonsListener());
+        
 
         models = model;
         for (int i = 1; i <= 4; i++) {
@@ -56,16 +56,25 @@ public class Controller {
             System.out.println("CONTROLLER: Mov id here is "+movieId);
             views.addTimes(models.getShowtimes(movieId)); 
             views.showTimes();
+            views.addTimeAL(new timeButtonsListener());
         }
     }
 
-//    class timeButtonsListener implements ActionListener {
-//        public void actionPerformed(ActionEvent e) {
-//            views.genSeats();
-//            views.addSeats(model.getSeats(movieId));
-//            
-//            views.showSeats();
-//        }
-//    }
+    class timeButtonsListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            for (int i = 0; i < 10; i++) {
+                if (e.getSource() == views.movietimes[i])  {
+                    showId = 1;
+                    break;
+                }
+            }
+            
+            
+            views.genSeats();
+            views.addSeats();
+            
+            views.showSeats(models.getSeats(showId));
+        }
+    }
 }
 
