@@ -84,7 +84,15 @@ public class Controller {
         public void actionPerformed(ActionEvent e) {
             views.setNames();
             views.showConfirmation(views.getfName(), views.getlName(), models.getMovie(movieId), time, seat);
+            views.addTicketAL(new ticketListener());
             views.closeConfirmation();
+        }
+    }
+    
+    class ticketListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            models.createTicket(showId, seat, views.getfName()+" "+views.getlName());
+            views.closeTicket();
         }
     }
 }

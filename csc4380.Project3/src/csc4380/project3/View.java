@@ -80,6 +80,7 @@ public class View extends javax.swing.JFrame {
         movieTitle = new javax.swing.JLabel();
         timeSlot = new javax.swing.JLabel();
         seat = new javax.swing.JLabel();
+        confirmTicketButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         moviepanel = new javax.swing.JPanel();
@@ -195,10 +196,17 @@ public class View extends javax.swing.JFrame {
         seat.setBackground(new java.awt.Color(255, 255, 255));
         seat.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
 
+        confirmTicketButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        confirmTicketButton.setText("Confirm Ticket");
+
         javax.swing.GroupLayout confirmationDialogLayout = new javax.swing.GroupLayout(confirmationDialog.getContentPane());
         confirmationDialog.getContentPane().setLayout(confirmationDialogLayout);
         confirmationDialogLayout.setHorizontalGroup(
             confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmationDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(confirmationDialogTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(171, 171, 171))
             .addGroup(confirmationDialogLayout.createSequentialGroup()
                 .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(confirmationDialogLayout.createSequentialGroup()
@@ -219,17 +227,16 @@ public class View extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(timeSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(seat, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(seat, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(confirmationDialogLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(confirmTicketButton))))))
                     .addGroup(confirmationDialogLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(fnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(fName, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(94, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmationDialogLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(confirmationDialogTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
         );
         confirmationDialogLayout.setVerticalGroup(
             confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,7 +263,9 @@ public class View extends javax.swing.JFrame {
                 .addGroup(confirmationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(seat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(confirmTicketButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -536,9 +545,20 @@ public class View extends javax.swing.JFrame {
         nameDialog.dispose();
     }
     
+    public void addTicketAL(ActionListener e) {
+        confirmTicketButton.addActionListener(e);
+    }
 
+    public void closeTicket() {
+        confirmationDialog.dispose();
+        seatpanel.removeAll();
+        seatpanel.repaint();
+        showtimepanel.removeAll();
+        showtimepanel.repaint();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton confirmButton;
+    private javax.swing.JButton confirmTicketButton;
     private javax.swing.JDialog confirmationDialog;
     private javax.swing.JLabel confirmationDialogTitle;
     private javax.swing.JLabel fName;
